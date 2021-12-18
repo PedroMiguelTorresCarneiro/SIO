@@ -1,0 +1,5 @@
+#Server Files
+node_modules/
+*.json
+app/*.json
+app_sec/*.json

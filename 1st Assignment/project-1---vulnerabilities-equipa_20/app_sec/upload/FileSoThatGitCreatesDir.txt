@@ -1,0 +1,2 @@
+This is file is here to make sure that git creates dir upload, 
+because git doesn't create empty dirs, as far as I know.

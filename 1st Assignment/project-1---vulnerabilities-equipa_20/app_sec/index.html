@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>Bookshop</title>
+
+    </head>                                     
+
+
+    <body> 
+        <nav class="nav">
+            <a href="/" class="nav__link" link>Home</a>
+            <a href="/BookList" class="nav__link" link>My List</a>
+            <a href="/booksavailable" class="nav__link" link>Books Available</a>
+            <a href="/Login" class="nav__link" link>Login</a>
+            <a href="/User" class="nav__link" link>User Profile</a>
+            <a href="/Cart" class="nav__link" link>Cart</a>
+        </nav>
+        
+        <div id="htmlForAll"></div>
+        <div id="JSForAll"></div>
+        
+        <script type="module" src="/js/index.js"></script>
+    </body>
+
+    <style>
+        body {
+        --nav-width: 200px;
+            margin: 0 0 0 var(--nav-width);
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--nav-width);
+            height: 100vh;
+            background: #222222;
+        }
+
+        .nav__link {
+            display: block;
+            padding: 12px 18px;
+            text-decoration: none;
+            color: #eeeeee;
+            font-weight: 500;
+        }
+
+        .nav__link:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        #htmlForAll {
+            margin: 5em;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+    </style>
+   
+</html>
