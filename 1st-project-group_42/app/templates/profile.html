@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Flash messages display area -->
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="alert">
+      {% for message in messages %}
+        <p class="alert-message">{{ message }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<h2>User Profile</h2>
+{% if user %}
+<p>Welcome, {{ user.Username }}! Here are your profile details:</p>
+<ul>
+  <li>ID: {{ user.Id }}</li>
+  <li>Username: {{ user.Username }}</li>
+  <li>Email: {{ user.Email }}</li>
+  <li>Role: {{ 'Customer' if user.ProfileId == 1 else 'Other' }}</li>
+</ul>
+<!-- Button to open the update form modal -->
+<button type="button" data-bs-toggle="modal" data-bs-target="#updateInfoModal">
+  Update Info
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="updateInfoModal" tabindex="-1" aria-labelledby="updateInfoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateInfoModalLabel">Update Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Update form -->
+        <form action="{{ url_for('update_user', id=user.Id) }}" method="post">
+          <input type="hidden" name="id" value="{{ user.Id }}">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" value="{{ user.Username }}" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ user.Email }}" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% else %}
+<p>User details are not available.</p>
+{% endif %}
+{% endblock %}

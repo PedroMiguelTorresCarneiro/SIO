@@ -1,0 +1,14 @@
+<!-- templates/login.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{{ url_for('login') }}" method="post">
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <button type="submit">SIGN IN</button>
+</form>
+<a href="{{ url_for('register') }}">Create an account</a>
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+{% endblock %}

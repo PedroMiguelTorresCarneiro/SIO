@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Inventory Management</h2>
+<form id="addProductForm">
+    <label for="productName">Name:</label>
+    <input type="text" id="productName" name="name" required>
+
+    <label for="productDescription">Description:</label>
+    <textarea id="productDescription" name="description" required></textarea>
+
+    <label for="productPrice">Price:</label>
+    <input type="number" step="0.01" id="productPrice" name="price" required>
+
+    <label for="productCategory">Category ID:</label>
+    <input type="number" id="productCategory" name="categoryId" required>
+
+    <label for="productStock">Stock:</label>
+    <input type="number" id="productStock" name="stock" required>
+
+    <label for="productImage">Image URL:</label>
+    <textarea id="imagedescription" name="img" ></textarea>
+
+    <button type="submit">Add Product</button>
+</form>
+
+<h3>Inventory</h3>
+{% if products %}
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Stock</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+    <tr>
+      <td>{{ product['name'] }}</td>
+      <td>{{ product['description'] }}</td>
+      <td>{{ product['price'] }}</td>
+      <td>{{ product['stock'] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No products in the inventory.</p>
+{% endif %}
+
+<script>
+  document.getElementById('addProductForm').onsubmit = function(event) {
+      event.preventDefault();
+      var formData = {
+          name: document.getElementById('productName').value,
+          description: document.getElementById('productDescription').value,
+          price: parseFloat(document.getElementById('productPrice').value),
+          categoryId: parseInt(document.getElementById('productCategory').value),
+          stock: parseInt(document.getElementById('productStock').value),
+          image: document.getElementById('productImage').value
+      };
+  
+      // Replace 'API_ENDPOINT_URL' with the URL to your API endpoint for adding products
+      fetch('{{/api/inventory/product}}', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              // Include other headers your API requires, such as Authorization
+          },
+          body: JSON.stringify(formData)
+      })
+      .then(response => {
+          if (response.ok) {
+              return response.json();
+          } else {
+              throw new Error('Something went wrong');
+          }
+      })
+      .then(data => {
+          console.log('Success:', data);
+          // Handle success - for example, you could clear the form or reload the inventory
+          document.getElementById('addProductForm').reset();
+          window.location.reload(); // Reload the page to see the updated inventory
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+          // Handle errors here, for example, by showing an error message to the user
+      });
+  };
+  </script>
+
+{% endblock %}

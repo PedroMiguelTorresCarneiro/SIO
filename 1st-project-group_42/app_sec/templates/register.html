@@ -1,0 +1,16 @@
+<!-- templates/register.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="https://127.0.0.1/api/security/register" method="post"> <!-- correcting CWE 549 --> 
+    <input type="text" name="username" placeholder="Username" required minlength="4" maxlength="25" 
+    pattern="^(?!.*://).{4,25}$" title="Username must be between 4 and 25 characters and must not contain a URL."><!-- correcting CWE 20/601 --> 
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <select name="role" required>
+        <option value="customer">Customer</option>
+        <option value="admin">Admin</option>
+    </select>
+    <button type="submit">Register</button>
+</form>
+{% endblock %}

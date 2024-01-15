@@ -1,0 +1,56 @@
+>Tables:
+
+Users
+	user_id: INTEGER, Primary Key, Auto Increment
+	username: VARCHAR(255), Unique
+	password_hash: VARCHAR(255)
+	user_role: ENUM('admin', 'customer')
+
+Products
+	product_id: INTEGER, Primary Key, Auto Increment
+	name: VARCHAR(255)
+	description: TEXT
+	price: DECIMAL(10, 2)
+	product_image: TEXT
+	category_id: INTEGER, Foreign Key to Categories
+
+Categories
+	category_id: INTEGER, Primary Key, Auto Increment
+	category_name: VARCHAR(255)
+
+CartItems
+	cart_item_id: INTEGER, Primary Key, Auto Increment
+	user_id: INTEGER, Foreign Key to Users
+	product_id: INTEGER, Foreign Key to Products
+	quantity: INTEGER
+
+Orders
+	order_id: INTEGER, Primary Key, Auto Increment
+	user_id: INTEGER, Foreign Key to Users
+	order_date: TIMESTAMP
+	status: ENUM('pending', 'shipped', 'delivered')
+
+OrderItems
+	order_item_id: INTEGER, Primary Key, Auto Increment
+	order_id: INTEGER, Foreign Key to Orders
+	product_id: INTEGER, Foreign Key to Products
+	quantity: INTEGER
+	subtotal: DECIMAL(10, 2)
+
+Reviews
+	review_id: INTEGER, Primary Key, Auto Increment
+	user_id: INTEGER, Foreign Key to Users
+	product_id: INTEGER, Foreign Key to Products
+	rating: INTEGER
+	review_text: TEXT
+
+>Relationships:
+
+	- One-to-Many between Users and CartItems
+	- One-to-Many between Users and Orders
+	- One-to-Many between Categories and Products
+	- One-to-Many between Users and Reviews
+	- One-to-Many between Products and CartItems
+	- One-to-Many between Products and OrderItems
+	- One-to-Many between Products and Reviews
+	- One-to-Many between Orders and OrderItems

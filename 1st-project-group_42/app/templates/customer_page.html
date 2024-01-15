@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>Welcome to the customer area!</p>
+<nav>
+    <ul>
+        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+        <li><a href="{{ url_for('cart') }}">Cart</a></li>
+    </ul>
+</nav>
+{% endblock %}
