@@ -1,9 +1,0 @@
-CWE-680: Integer Overflow to Buffer Overflow
-
-
-
->Handle number overflow in JavaScript
-
-https://www.algotech.solutions/blog/javascript/handle-number-overflow-javascript/
-
-https://stackoverflow.com/questions/19054891/does-javascript-handle-integer-overflow-and-underflow-if-yes-how
