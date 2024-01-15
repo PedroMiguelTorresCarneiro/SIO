@@ -1,13 +1,23 @@
-# Segurança Informática e Nas Organizações
+# Informatics and Organizational Security
 
-## Objetivos
+## Objectives
 
-Pretende-se que esta disciplina ofereça uma visão geral da área da Segurança Informática, com ênfase particular para os problemas de segurança que se colocam ao nível das organizações. Estes serão realçados em termos de segurança da informação e segurança das infra-estrututuras (máquinas e redes).
+The aim of this course is to provide an overview of the field of Information Security, with a particular emphasis on the security challenges faced by organizations. These challenges will be highlighted in terms of information security and infrastructure security (machines and networks).
 
-Nesta cadeira serão focados os aspectos base da segurança informática, a definição de políticas de segurança e a sua implantação usando diversos mecanismos de segurança.
+This course will focus on the basic aspects of information security, the definition of security policies, and their implementation using various security mechanisms.
 
-Complementarmente, serão focadas questões éticas, legais e sociais da segurança nas organizações.
+Additionally, ethical, legal, and social issues of security in organizations will be addressed.
 
-## Resultados de Aprendizagem
+## Learning Outcomes
 
-Conhecimentos sobre as vulnerabilidades de segurança dos sistemas computacionais em rede, os problemas que essas vulnerabilidades podem levantar se forem conhecidas e exploradas, as soluções teóricas que actualmente se conhece para eliminar as vulnerabilidades e as soluções técnicas que actualmente se usam, em diversos níveis e com diferentes objectivos, para assegurar atributos de segurança.
+Knowledge about the security vulnerabilities of networked computer systems, the problems that these vulnerabilities can pose if they are known and exploited, the theoretical solutions currently known to eliminate vulnerabilities, and the technical solutions that are currently used, at various levels and with different objectives, to ensure security attributes.
+
+## 1st Practical Project: Vulnerabilities
+
+It involved an in-depth analysis and exploration of various security vulnerabilities in computer systems and networks. The project aimed to provide hands-on experience in identifying, assessing, and proposing mitigation strategies for these vulnerabilities.
+
+This project was a key component of the course, allowing students to apply theoretical knowledge to practical scenarios. 
+
+GRADED: **15.6 out of 20** - reflecting a strong understanding and application of the course materials and concepts.
+
+---
