@@ -18,6 +18,6 @@ It involved an in-depth analysis and exploration of various security vulnerabili
 
 This project was a key component of the course, allowing students to apply theoretical knowledge to practical scenarios. 
 
-GRADED: **15.6 out of 20** - reflecting a strong understanding and application of the course materials and concepts.
+GRADED: **15.6/20** - reflecting a strong understanding and application of the course materials and concepts.
 
 ---
